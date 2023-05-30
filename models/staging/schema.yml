@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_customers
+    config:
+      materialized: table
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+      - name: last_name
+      - name: email
+      - name: gender
+  - name: stg_orders
+    config:
+      materialized: table
+    columns:
+      - name: id
+      - name: date
+      - name: customer_id
+      - name: status
+        tests:
+          - accepted_values: 
+              values: ['new', 'processing', 'completed', 'pending', 'cancelled']
+  - name: stg_order_items
+    config:
+      materialized: table
+    columns:
+      - name: order_id
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: id
+      - name: order_item_id
+      - name: product_id
+      - name: quantity
+  - name: stg_products
+    config:
+      materialized: table
+    columns:
+     - name: id
+     - name: name
+     - name: price
+     - name: category

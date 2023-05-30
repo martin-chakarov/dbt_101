@@ -1,0 +1,10 @@
+version: 2
+
+macros:
+  - name: calculate_tip
+    description: A macro that calculates the tip for a restaurant order.
+    arguments:
+      - name: order_total
+        description: The order total excluding tip.
+      - name: tip_percentage
+        description: The amount to be tipped, in %.
