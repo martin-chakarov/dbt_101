@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: job_test
+    columns:
+      - name: id
+        tests:
+          - unique
+          
