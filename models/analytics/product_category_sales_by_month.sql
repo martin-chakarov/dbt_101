@@ -36,7 +36,7 @@ orders_with_products as (
 final as (
     select
         month,
-        product_category,
+        product_category as category,
         total_units_sold,
         to_number(total_sales_usd, 10, 2) as total_sales_usd
     from orders_with_products
