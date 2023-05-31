@@ -24,7 +24,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
-# models:
-#   dbt_101:
-#     staging:
-#       +materialized: table
+models:
+  dbt_101:
+    analytics:
+      +materialized: table
